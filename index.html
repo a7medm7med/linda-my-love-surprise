@@ -30,7 +30,7 @@
         scroll-behavior: smooth;
       }
 
-      /* Advanced Animated Background - Improved for Mobile */
+      /* FIXED: Animated Background - Always visible */
       .animated-background {
         position: fixed;
         top: 0;
@@ -39,6 +39,12 @@
         height: 100%;
         z-index: 0;
         overflow: hidden;
+        background: linear-gradient(
+          135deg,
+          #1a0a0f 0%,
+          #0f0f0f 50%,
+          #0a0a1a 100%
+        );
       }
 
       .gradient-orb {
@@ -53,7 +59,7 @@
         width: 400px;
         height: 400px;
         background: radial-gradient(circle, #ff6b9d 0%, #ff9a9e 100%);
-        top: -10%;
+        top: 20%;
         left: -10%;
         animation-delay: 0s;
       }
@@ -62,7 +68,7 @@
         width: 350px;
         height: 350px;
         background: radial-gradient(circle, #ffd93d 0%, #ffb976 100%);
-        bottom: -10%;
+        bottom: 20%;
         right: -10%;
         animation-delay: 5s;
       }
@@ -73,7 +79,27 @@
         background: radial-gradient(circle, #c06c84 0%, #ee9ca7 100%);
         top: 50%;
         left: 50%;
+        transform: translate(-50%, -50%);
         animation-delay: 10s;
+      }
+
+      /* Additional orbs for better coverage */
+      .orb4 {
+        width: 280px;
+        height: 280px;
+        background: radial-gradient(circle, #ff6b9d 0%, #c06c84 100%);
+        top: 10%;
+        right: 15%;
+        animation-delay: 3s;
+      }
+
+      .orb5 {
+        width: 320px;
+        height: 320px;
+        background: radial-gradient(circle, #ffd93d 0%, #ff9a9e 100%);
+        bottom: 10%;
+        left: 20%;
+        animation-delay: 7s;
       }
 
       /* Mobile-specific background adjustments */
@@ -86,36 +112,49 @@
         .orb1 {
           width: 250px;
           height: 250px;
-          top: -5%;
+          top: 15%;
           left: -15%;
         }
 
         .orb2 {
           width: 220px;
           height: 220px;
-          bottom: -5%;
+          bottom: 15%;
           right: -15%;
         }
 
         .orb3 {
           width: 280px;
           height: 280px;
-          top: 45%;
-          left: 45%;
           opacity: 0.7;
           filter: blur(70px);
         }
 
+        .orb4 {
+          width: 200px;
+          height: 200px;
+          top: 8%;
+          right: 10%;
+        }
+
+        .orb5 {
+          width: 240px;
+          height: 240px;
+          bottom: 8%;
+          left: 15%;
+        }
+
+        /* Dark overlay for better text readability */
         .animated-background::before {
           content: "";
           position: absolute;
-          width: 200px;
-          height: 200px;
-          background: radial-gradient(circle, #1a1a1a 0%, transparent 70%);
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          filter: blur(40px);
+          width: 100%;
+          height: 100%;
+          background: radial-gradient(
+            circle at center,
+            transparent 0%,
+            rgba(15, 15, 15, 0.3) 100%
+          );
           z-index: 1;
         }
       }
@@ -126,10 +165,10 @@
           transform: translate(0, 0) scale(1);
         }
         33% {
-          transform: translate(50px, -50px) scale(1.1);
+          transform: translate(30px, -30px) scale(1.05);
         }
         66% {
-          transform: translate(-50px, 50px) scale(0.9);
+          transform: translate(-30px, 30px) scale(0.95);
         }
       }
 
@@ -559,7 +598,6 @@
         scrollbar-width: thin;
       }
 
-      /* Chromium + Safari */
       .hurt-dialog::-webkit-scrollbar {
         width: 8px;
         background-color: transparent;
@@ -883,7 +921,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.85);
+        background: rgba(0, 0, 0, 0.55);
         backdrop-filter: blur(10px);
         z-index: 10000;
         display: flex;
@@ -921,7 +959,6 @@
         scrollbar-width: thin;
       }
 
-      /* Chromium + Safari */
       .gift-dialog::-webkit-scrollbar {
         width: 8px;
         background-color: transparent;
@@ -1171,11 +1208,13 @@
     </style>
   </head>
   <body>
-    <!-- Animated Background -->
+    <!-- FIXED: Animated Background with 5 orbs for full coverage -->
     <div class="animated-background">
       <div class="gradient-orb orb1"></div>
       <div class="gradient-orb orb2"></div>
       <div class="gradient-orb orb3"></div>
+      <div class="gradient-orb orb4"></div>
+      <div class="gradient-orb orb5"></div>
     </div>
 
     <!-- Particles Container -->
@@ -1331,22 +1370,22 @@
     <div class="hurt-dialog-overlay hidden" id="hurtDialog">
       <div class="hurt-dialog">
         <div class="hurt-icon">💔</div>
-        <h2 class="hurt-title">It’s okay, my love</h2>
+        <h2 class="hurt-title">It's okay, my love</h2>
         <p class="hurt-message">
           Linda… if your heart still feels hurt, I understand.<br /><br />
 
-          You don’t have to rush anything or forgive me before you’re ready.<br /><br />
+          You don't have to decide anything before you're ready.<br /><br />
 
-          I’m not going anywhere. I’m still here, still loving you, still
+          I'm not going anywhere. I'm still here, still loving you, still
           choosing you.<br /><br />
 
-          Take your time. When you’re ready, we’ll walk forward together —
+          Take your time. When you're ready, we'll walk forward together —
           slowly, gently, side by side.<br /><br />
 
           No pressure. Just love. ❤️
         </p>
         <button class="hurt-button" onclick="closeHurtDialog()">
-          Come here 💖
+          Let's walk forward 💖
         </button>
       </div>
     </div>
@@ -1427,62 +1466,9 @@
       // Love Letter Content
       const letterMessage = `My Beautiful Linda,
 
-I’m writing this with a heart full of love and honesty. There’s something important I need to tell you — I’m sorry. I was hard with you at times, especially when you were so tired, and I kept my feelings inside until they built up and spilled over.
+I adore you — every part of you. Your strength, your softness, your dedication, the way you love so deeply even when you're tired.
 
-You’ve been carrying so much on your shoulders. Studying late into the night, working tirelessly, caring for your family, standing strong for your mother… You’ve been a warrior for everyone around you.
-
-And instead of being your shelter from the storm, I sometimes became another weight in your day.
-
-Instead of supporting you, I let my frustration show in the wrong ways.
-Instead of understanding your responsibilities, I let my words sound harsher than they should.
-And even when I said I didn’t feel safe, what I really wanted was to make you feel loved, supported, and protected — not burdened by me.
-
-Linda, I see you now — truly see you.
-
-I see the incredible woman who gives everything to everyone she loves.
-I see your strength, your kindness, your sacrifices, and the quiet exhaustion you carry with so much grace.
-
-And I am so, so sorry for being hard during the times you were tired, for not handling my feelings better, and for letting them spill over in ways that hurt you.
-
-You don’t deserve pressure from me, and I don’t want to add weight to your day. I hope we can meet each other’s needs gently, together.
-
-You deserve a partner who stands beside you… who lifts you up… who says “I’m proud of you” instead of “why aren’t you sometimes here?”
-
-From this moment forward, I want to be that person for you.
-
-I promise to choose my words carefully — with love, never blame.
-I promise to be your safe place — where you can rest, breathe, and just be yourself.
-I promise to support your dreams, your goals, and everything that matters to you.
-
-Linda… you are my future.
-
-You are my heart, my home, my soulmate.
-
-Your smile feels like sunrise after the longest night.
-Your laugh is my favorite sound in the world.
-And your love is the greatest gift I have ever received.
-
-I adore you — every part of you. Your strength, your softness, your dedication, the way you love so deeply even when you’re tired.
-
-You are simply… everything to me.
-
-And even if someday I fall short or make mistakes again, I want you to know something with complete certainty — my love for you will never stop growing.
-
-You are not pressure in my life… you are peace.
-Not my weakness… but my strength.
-Not a burden… but my greatest blessing.
-
-If only you could see yourself through my eyes, you would realize how extraordinary you truly are, and how much light you bring into my world just by being you.
-
-Your happiness means everything to me.
-
-For the rest of my life, I will keep trying — every single day — to be the man who deserves your heart, to protect your smile, and to give you the same love and comfort you give to everyone around you.
-
-Because loving you is the easiest and most beautiful thing I have ever done.
-
-Let's start fresh. Let me show you the partner you deserve—the one who supports you, celebrates you, and loves you exactly as you are.
-
-Happy Valentine’s Day, my love ❤️`;
+Happy Valentine's Day, my love ❤️`;
 
       function typeWriter(text, element, speed = 20) {
         let i = 0;
@@ -1580,6 +1566,11 @@ Happy Valentine’s Day, my love ❤️`;
 
       // Claim Gift Function
       function claimGift() {
+        // Clear any existing fireworks first
+        const canvas = document.getElementById("fireworksCanvas");
+        const ctx = canvas.getContext("2d");
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
         // Stop current music
         celebrationMusic.pause();
 
