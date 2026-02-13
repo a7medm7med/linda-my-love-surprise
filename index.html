@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>From Ahmed To Linda ❤️ My Forever Valentine</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <style>
       * {
         margin: 0;
@@ -30,7 +31,7 @@
         scroll-behavior: smooth;
       }
 
-      /* FIXED: Animated Background - Always visible */
+      /* Animated Background - Always visible */
       .animated-background {
         position: fixed;
         top: 0;
@@ -1208,7 +1209,7 @@
     </style>
   </head>
   <body>
-    <!-- FIXED: Animated Background with 5 orbs for full coverage -->
+    <!-- Animated Background with 5 orbs for full coverage -->
     <div class="animated-background">
       <div class="gradient-orb orb1"></div>
       <div class="gradient-orb orb2"></div>
@@ -1385,7 +1386,7 @@
           No pressure. Just love. ❤️
         </p>
         <button class="hurt-button" onclick="closeHurtDialog()">
-          Let's walk forward 💖
+          Let's walk forward together 💖
         </button>
       </div>
     </div>
@@ -1430,6 +1431,10 @@
       const celebrationMusic = document.getElementById("celebrationMusic");
       const giftMusic = document.getElementById("giftMusic");
 
+      // Fireworks control flag
+      let fireworksActive = false;
+      let currentFireworksAnimation = null;
+
       // Advanced Particle System
       function createParticleSystem() {
         const container = document.getElementById("particlesContainer");
@@ -1460,13 +1465,66 @@
 
           container.appendChild(particle);
           setTimeout(() => particle.remove(), 12000);
-        }, 300);
+        }, 250);
       }
 
       // Love Letter Content
       const letterMessage = `My Beautiful Linda,
 
+I'm writing this with a heart full of love and honesty. There's something important I need to tell you — I'm sorry. I was hard with you at times, especially when you were so tired, and I kept my feelings inside until they built up and spilled over.
+
+You've been carrying so much on your shoulders. Studying late into the night, working tirelessly, caring for your family, standing strong for your mother… You've been a warrior for everyone around you.
+
+And instead of being your shelter from the storm, I sometimes became another weight in your day.
+
+Instead of supporting you, I let my frustration show in the wrong ways.
+Instead of understanding your responsibilities, I let my words sound harsher than they should.
+And even when I said I didn't feel safe, what I really wanted was to make you feel loved, supported, and protected — not burdened by me.
+
+Linda, I see you now — truly see you.
+
+I see the incredible woman who gives everything to everyone she loves.
+I see your strength, your kindness, your sacrifices, and the quiet exhaustion you carry with so much grace.
+
+And I am so, so sorry for being hard during the times you were tired, for not handling my feelings better, and for letting them spill over in ways that hurt you.
+
+You don't deserve pressure from me, and I don't want to add weight to your day. I hope we can meet each other's needs gently, together.
+
+You deserve a partner who stands beside you… who lifts you up… who says "I'm proud of you" instead of "why aren't you sometimes here?"
+
+From this moment forward, I want to be that person for you.
+
+I promise to choose my words carefully — with love, never blame.
+I promise to be your safe place — where you can rest, breathe, and just be yourself.
+I promise to support your dreams, your goals, and everything that matters to you.
+
+Linda… you are my future.
+
+You are my heart, my home, my soulmate.
+
+Your smile feels like sunrise after the longest night.
+Your laugh is my favorite sound in the world.
+And your love is the greatest gift I have ever received.
+
 I adore you — every part of you. Your strength, your softness, your dedication, the way you love so deeply even when you're tired.
+
+You are simply… everything to me.
+
+And even if someday I fall short or make mistakes again, I want you to know something with complete certainty — my love for you will never stop growing.
+
+You are not pressure in my life… you are peace.
+Not my weakness… but my strength.
+Not a burden… but my greatest blessing.
+
+If only you could see yourself through my eyes, you would realize how extraordinary you truly are, and how much light you bring into my world just by being you.
+
+Your happiness means everything to me.
+
+For the rest of my life, I will keep trying — every single day — to be the man who deserves your heart, to protect your smile, and to give you the same love and comfort you give to everyone around you.
+
+Because loving you is the easiest and most beautiful thing I have ever done.
+
+Let's start fresh. Let me show you the partner you deserve—the one who supports you, celebrates you, and loves you exactly as you are.
 
 Happy Valentine's Day, my love ❤️`;
 
@@ -1534,6 +1592,19 @@ Happy Valentine's Day, my love ❤️`;
         }, 400);
       }
 
+      function clearFireworksCanvas() {
+        const canvas = document.getElementById("fireworksCanvas");
+        const ctx = canvas.getContext("2d");
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Cancel any ongoing animation
+        if (currentFireworksAnimation) {
+          cancelAnimationFrame(currentFireworksAnimation);
+          currentFireworksAnimation = null;
+        }
+        fireworksActive = false;
+      }
+
       // Handle Valentine
       function handleValentine() {
         const btn = event.target;
@@ -1558,18 +1629,15 @@ Happy Valentine's Day, my love ❤️`;
           celebrationMusic.volume = 0.5;
           celebrationMusic.play().catch((e) => console.log("Audio blocked"));
 
-          setTimeout(() => createFireworks(), 300);
           setTimeout(() => createConfetti(), 500);
           setTimeout(() => createHeartExplosion(), 700);
         }, 2000);
       }
 
-      // Claim Gift Function
+      // Claim Gift Function - Only massive fireworks here
       function claimGift() {
         // Clear any existing fireworks first
-        const canvas = document.getElementById("fireworksCanvas");
-        const ctx = canvas.getContext("2d");
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        clearFireworksCanvas();
 
         // Stop current music
         celebrationMusic.pause();
@@ -1578,7 +1646,7 @@ Happy Valentine's Day, my love ❤️`;
         giftMusic.volume = 0.6;
         giftMusic.play().catch((e) => console.log("Audio blocked"));
 
-        // Massive fireworks
+        // MASSIVE fireworks - ONLY when button clicked
         createMassiveFireworks();
 
         // Show gift dialog
@@ -1588,8 +1656,10 @@ Happy Valentine's Day, my love ❤️`;
       // Close Gift Dialog
       function closeGiftDialog() {
         document.getElementById("giftDialog").classList.add("hidden");
-
         document.getElementById("giftSection").classList.add("hidden");
+
+        // Clear fireworks when closing dialog
+        clearFireworksCanvas();
 
         celebrationMusic.currentTime = 20;
         celebrationMusic.volume = 0.5;
@@ -1598,6 +1668,12 @@ Happy Valentine's Day, my love ❤️`;
 
       // Massive Fireworks for Gift
       function createMassiveFireworks() {
+        // Prevent multiple instances
+        if (fireworksActive) {
+          return;
+        }
+        fireworksActive = true;
+
         const canvas = document.getElementById("fireworksCanvas");
         const ctx = canvas.getContext("2d");
         canvas.width = window.innerWidth;
@@ -1605,7 +1681,6 @@ Happy Valentine's Day, my love ❤️`;
 
         const fireworks = [];
         const particles = [];
-        let animationId;
 
         class Firework {
           constructor() {
@@ -1666,6 +1741,10 @@ Happy Valentine's Day, my love ❤️`;
         }
 
         function animate() {
+          if (!fireworksActive) {
+            return; // Stop if flag is false
+          }
+
           ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
           ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -1696,122 +1775,15 @@ Happy Valentine's Day, my love ❤️`;
             }
           }
 
-          animationId = requestAnimationFrame(animate);
+          currentFireworksAnimation = requestAnimationFrame(animate);
         }
 
         animate();
 
+        // Auto-stop after 12 seconds
         setTimeout(() => {
-          cancelAnimationFrame(animationId);
-          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          clearFireworksCanvas();
         }, 12000);
-      }
-
-      // Regular Fireworks
-      function createFireworks() {
-        const canvas = document.getElementById("fireworksCanvas");
-        const ctx = canvas.getContext("2d");
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-
-        const fireworks = [];
-        const particles = [];
-
-        class Firework {
-          constructor() {
-            this.x = Math.random() * canvas.width;
-            this.y = canvas.height;
-            this.targetY = Math.random() * canvas.height * 0.5;
-            this.speed = Math.random() * 3 + 2;
-            this.color = `hsl(${Math.random() * 360}, 100%, 60%)`;
-          }
-
-          update() {
-            this.y -= this.speed;
-            return this.y <= this.targetY;
-          }
-
-          draw() {
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, 3, 0, Math.PI * 2);
-            ctx.fillStyle = this.color;
-            ctx.fill();
-          }
-        }
-
-        class Particle {
-          constructor(x, y, color) {
-            this.x = x;
-            this.y = y;
-            this.color = color;
-            const angle = Math.random() * Math.PI * 2;
-            const speed = Math.random() * 5 + 2;
-            this.vx = Math.cos(angle) * speed;
-            this.vy = Math.sin(angle) * speed;
-            this.alpha = 1;
-            this.decay = Math.random() * 0.02 + 0.01;
-          }
-
-          update() {
-            this.x += this.vx;
-            this.y += this.vy;
-            this.vy += 0.1;
-            this.alpha -= this.decay;
-            return this.alpha > 0;
-          }
-
-          draw() {
-            ctx.save();
-            ctx.globalAlpha = this.alpha;
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, 2, 0, Math.PI * 2);
-            ctx.fillStyle = this.color;
-            ctx.fill();
-            ctx.restore();
-          }
-        }
-
-        function animate() {
-          ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
-          ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-          if (Math.random() < 0.1) {
-            fireworks.push(new Firework());
-          }
-
-          for (let i = fireworks.length - 1; i >= 0; i--) {
-            fireworks[i].draw();
-            if (fireworks[i].update()) {
-              for (let j = 0; j < 50; j++) {
-                particles.push(
-                  new Particle(
-                    fireworks[i].x,
-                    fireworks[i].y,
-                    fireworks[i].color,
-                  ),
-                );
-              }
-              fireworks.splice(i, 1);
-            }
-          }
-
-          for (let i = particles.length - 1; i >= 0; i--) {
-            particles[i].draw();
-            if (!particles[i].update()) {
-              particles.splice(i, 1);
-            }
-          }
-
-          if (fireworks.length > 0 || particles.length > 0) {
-            requestAnimationFrame(animate);
-          }
-        }
-
-        animate();
-
-        setTimeout(() => {
-          ctx.clearRect(0, 0, canvas.width, canvas.height);
-        }, 8000);
       }
 
       // Confetti
