@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>From Ahmed To Linda ❤️ My Forever Valentine</title>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+     <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
     <style>
       * {
         margin: 0;
@@ -31,7 +31,7 @@
         scroll-behavior: smooth;
       }
 
-      /* Animated Background - Always visible */
+      /* Advanced Animated Background - Improved for Mobile */
       .animated-background {
         position: fixed;
         top: 0;
@@ -40,12 +40,6 @@
         height: 100%;
         z-index: 0;
         overflow: hidden;
-        background: linear-gradient(
-          135deg,
-          #1a0a0f 0%,
-          #0f0f0f 50%,
-          #0a0a1a 100%
-        );
       }
 
       .gradient-orb {
@@ -60,7 +54,7 @@
         width: 400px;
         height: 400px;
         background: radial-gradient(circle, #ff6b9d 0%, #ff9a9e 100%);
-        top: 20%;
+        top: -10%;
         left: -10%;
         animation-delay: 0s;
       }
@@ -69,7 +63,7 @@
         width: 350px;
         height: 350px;
         background: radial-gradient(circle, #ffd93d 0%, #ffb976 100%);
-        bottom: 20%;
+        bottom: -10%;
         right: -10%;
         animation-delay: 5s;
       }
@@ -80,27 +74,7 @@
         background: radial-gradient(circle, #c06c84 0%, #ee9ca7 100%);
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
         animation-delay: 10s;
-      }
-
-      /* Additional orbs for better coverage */
-      .orb4 {
-        width: 280px;
-        height: 280px;
-        background: radial-gradient(circle, #ff6b9d 0%, #c06c84 100%);
-        top: 10%;
-        right: 15%;
-        animation-delay: 3s;
-      }
-
-      .orb5 {
-        width: 320px;
-        height: 320px;
-        background: radial-gradient(circle, #ffd93d 0%, #ff9a9e 100%);
-        bottom: 10%;
-        left: 20%;
-        animation-delay: 7s;
       }
 
       /* Mobile-specific background adjustments */
@@ -113,49 +87,36 @@
         .orb1 {
           width: 250px;
           height: 250px;
-          top: 15%;
+          top: -5%;
           left: -15%;
         }
 
         .orb2 {
           width: 220px;
           height: 220px;
-          bottom: 15%;
+          bottom: -5%;
           right: -15%;
         }
 
         .orb3 {
           width: 280px;
           height: 280px;
+          top: 45%;
+          left: 45%;
           opacity: 0.7;
           filter: blur(70px);
         }
 
-        .orb4 {
-          width: 200px;
-          height: 200px;
-          top: 8%;
-          right: 10%;
-        }
-
-        .orb5 {
-          width: 240px;
-          height: 240px;
-          bottom: 8%;
-          left: 15%;
-        }
-
-        /* Dark overlay for better text readability */
         .animated-background::before {
           content: "";
           position: absolute;
-          width: 100%;
-          height: 100%;
-          background: radial-gradient(
-            circle at center,
-            transparent 0%,
-            rgba(15, 15, 15, 0.3) 100%
-          );
+          width: 200px;
+          height: 200px;
+          background: radial-gradient(circle, #1a1a1a 0%, transparent 70%);
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          filter: blur(40px);
           z-index: 1;
         }
       }
@@ -166,10 +127,10 @@
           transform: translate(0, 0) scale(1);
         }
         33% {
-          transform: translate(30px, -30px) scale(1.05);
+          transform: translate(50px, -50px) scale(1.1);
         }
         66% {
-          transform: translate(-30px, 30px) scale(0.95);
+          transform: translate(-50px, 50px) scale(0.9);
         }
       }
 
@@ -599,6 +560,7 @@
         scrollbar-width: thin;
       }
 
+      /* Chromium + Safari */
       .hurt-dialog::-webkit-scrollbar {
         width: 8px;
         background-color: transparent;
@@ -960,6 +922,7 @@
         scrollbar-width: thin;
       }
 
+      /* Chromium + Safari */
       .gift-dialog::-webkit-scrollbar {
         width: 8px;
         background-color: transparent;
@@ -1209,13 +1172,11 @@
     </style>
   </head>
   <body>
-    <!-- Animated Background with 5 orbs for full coverage -->
+    <!-- Animated Background -->
     <div class="animated-background">
       <div class="gradient-orb orb1"></div>
       <div class="gradient-orb orb2"></div>
       <div class="gradient-orb orb3"></div>
-      <div class="gradient-orb orb4"></div>
-      <div class="gradient-orb orb5"></div>
     </div>
 
     <!-- Particles Container -->
@@ -1431,10 +1392,6 @@
       const celebrationMusic = document.getElementById("celebrationMusic");
       const giftMusic = document.getElementById("giftMusic");
 
-      // Fireworks control flag
-      let fireworksActive = false;
-      let currentFireworksAnimation = null;
-
       // Advanced Particle System
       function createParticleSystem() {
         const container = document.getElementById("particlesContainer");
@@ -1465,7 +1422,7 @@
 
           container.appendChild(particle);
           setTimeout(() => particle.remove(), 12000);
-        }, 250);
+        }, 300);
       }
 
       // Love Letter Content
@@ -1490,7 +1447,7 @@ And I am so, so sorry for being hard during the times you were tired, for not ha
 
 You don't deserve pressure from me, and I don't want to add weight to your day. I hope we can meet each other's needs gently, together.
 
-You deserve a partner who stands beside you… who lifts you up… who says "I'm proud of you" instead of "why aren't you sometimes here?"
+You deserve a partner who stands beside you… who lifts you up… who says “I'm proud of you” instead of “why aren't you sometimes here?”
 
 From this moment forward, I want to be that person for you.
 
@@ -1592,19 +1549,6 @@ Happy Valentine's Day, my love ❤️`;
         }, 400);
       }
 
-      function clearFireworksCanvas() {
-        const canvas = document.getElementById("fireworksCanvas");
-        const ctx = canvas.getContext("2d");
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        // Cancel any ongoing animation
-        if (currentFireworksAnimation) {
-          cancelAnimationFrame(currentFireworksAnimation);
-          currentFireworksAnimation = null;
-        }
-        fireworksActive = false;
-      }
-
       // Handle Valentine
       function handleValentine() {
         const btn = event.target;
@@ -1634,11 +1578,8 @@ Happy Valentine's Day, my love ❤️`;
         }, 2000);
       }
 
-      // Claim Gift Function - Only massive fireworks here
+      // Claim Gift Function
       function claimGift() {
-        // Clear any existing fireworks first
-        clearFireworksCanvas();
-
         // Stop current music
         celebrationMusic.pause();
 
@@ -1646,7 +1587,7 @@ Happy Valentine's Day, my love ❤️`;
         giftMusic.volume = 0.6;
         giftMusic.play().catch((e) => console.log("Audio blocked"));
 
-        // MASSIVE fireworks - ONLY when button clicked
+        // Massive fireworks
         createMassiveFireworks();
 
         // Show gift dialog
@@ -1656,10 +1597,8 @@ Happy Valentine's Day, my love ❤️`;
       // Close Gift Dialog
       function closeGiftDialog() {
         document.getElementById("giftDialog").classList.add("hidden");
-        document.getElementById("giftSection").classList.add("hidden");
 
-        // Clear fireworks when closing dialog
-        clearFireworksCanvas();
+        document.getElementById("giftSection").classList.add("hidden");
 
         celebrationMusic.currentTime = 20;
         celebrationMusic.volume = 0.5;
@@ -1668,12 +1607,6 @@ Happy Valentine's Day, my love ❤️`;
 
       // Massive Fireworks for Gift
       function createMassiveFireworks() {
-        // Prevent multiple instances
-        if (fireworksActive) {
-          return;
-        }
-        fireworksActive = true;
-
         const canvas = document.getElementById("fireworksCanvas");
         const ctx = canvas.getContext("2d");
         canvas.width = window.innerWidth;
@@ -1681,6 +1614,7 @@ Happy Valentine's Day, my love ❤️`;
 
         const fireworks = [];
         const particles = [];
+        let animationId;
 
         class Firework {
           constructor() {
@@ -1741,10 +1675,6 @@ Happy Valentine's Day, my love ❤️`;
         }
 
         function animate() {
-          if (!fireworksActive) {
-            return; // Stop if flag is false
-          }
-
           ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
           ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -1775,14 +1705,14 @@ Happy Valentine's Day, my love ❤️`;
             }
           }
 
-          currentFireworksAnimation = requestAnimationFrame(animate);
+          animationId = requestAnimationFrame(animate);
         }
 
         animate();
 
-        // Auto-stop after 12 seconds
         setTimeout(() => {
-          clearFireworksCanvas();
+          cancelAnimationFrame(animationId);
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
         }, 12000);
       }
 
